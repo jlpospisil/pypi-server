@@ -9,43 +9,44 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="pt-3">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">PyPI Server</a>
+    </nav>
 
-    <div class="container py-5">
-        <h5 class="mb-3">Package List</h5>
-
-        <ul class="list-group mb-5">
-            <li class="list-group-item list-group-item-action">
-                <a class="d-flex" href="{{SIMPLE}}">Simple</a>
-            </li>
-
-            <li class="list-group-item list-group-item-action">
-                <a class="d-flex" href="{{PACKAGES}}">Complete</a>
-            </li>
-        </ul>
-
-        <h5 class="mb-3">Installing packages</h5>
-
-        <div class="card mb-3">
-            <h5 class="card-header">pip</h5>
-            <div class="card-body">
-                <div class="card-text">
-                    <pre>pip install --extra-index-url {{URL}} PACKAGE [PACKAGE2...]</pre>
-                </div>
+    <main role="main">
+        <div class="jumbotron">
+            <div class="container">
+                <p class="py-2">
+                    This private PyPI server is currently hosting {{NUMPKGS}} packages.  You can browse that list of
+                    packages using one of the following options.  The complete list will show all packages and versions
+                    whereas the simple list just shows the package names.
+                </p>
+                <p class="pt-2">
+                    <a class="btn btn-primary btn-lg" href="{{SIMPLE}}" role="button">Simple</a>
+                    <a class="btn btn-primary btn-lg" href="{{PACKAGES}}" role="button">Complete</a>
+                </p>
             </div>
         </div>
 
-        <div class="card">
-            <h5 class="card-header">easy_install</h5>
-            <div class="card-body">
-                <div class="card-text">
-                    <blockquote>
-                        <pre>easy_install -i {{URL}}simple/ PACKAGE</pre>
-                    </blockquote>
+        <div class="container">
+            <h5 class="mb-3 text-uppercase">Installing Packages</h5>
+
+            <div class="card mb-3 border-dark">
+                <h5 class="card-header bg-dark text-white">pip</h5>
+                <div class="card-text p-2">
+                    <pre>pip install &#45;&#45;extra-index-url {{URL}} PACKAGE [PACKAGE2...]</pre>
+                </div>
+            </div>
+
+            <div class="card border-dark">
+                <h5 class="card-header bg-dark text-white">easy_install</h5>
+                <div class="card-text p-2">
+                    <pre>easy_install -i {{URL}}simple/ PACKAGE</pre>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
