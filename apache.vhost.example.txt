@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+    ServerAdmin admin@domain.com
+    ServerName pypi.domain.com
+    DocumentRoot /opt/pypi
+    HostnameLookups Off
+    UseCanonicalName Off
+    ServerSignature On
+
+    WSGIPassAuthorization On
+    WSGIScriptAlias / /opt/pypi/main.py
+    WSGIDaemonProcess pypiserver python-home=/opt/pypi/venv python-path=/opt/pypi
+    WSGIProcessGroup pypiserver
+
+    ErrorLog "/var/log/httpd/pypiserver.error"
+    TransferLog "/dev/null"
+    CustomLog "/var/log/httpd/pypiserver.log" "%v %h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\""
+
+    <Directory /opt/pypi>
+        AuthType Basic
+        AuthName "PyPI Auth"
+        AuthUserFile /opt/pypi/.htpasswd
+        Require valid-user
+    </Directory>
+</VirtualHost>
