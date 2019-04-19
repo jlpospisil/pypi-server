@@ -46,3 +46,9 @@ Upload to private PyPI server
     python setup.py sdist upload -r mypypiserver
     ```
 
+Installing from requirements.txt
+---
+*Add the following lines to the top of requirements.txt*
+    
+    --trusted-host pypi.server.com \
+    --extra-index-url http://username:password@pypi.server.com \
