@@ -50,5 +50,5 @@ Installing from requirements.txt
 ---
 *Add the following lines to the top of requirements.txt*
     
-    --trusted-host pypi.server.com \
-    --extra-index-url http://username:password@pypi.server.com \
+    --trusted-host pypi.server.com
+    --extra-index-url http://username:password@pypi.server.com
