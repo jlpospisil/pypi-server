@@ -18,7 +18,7 @@ Add user or update password
     
 Starting the server locally
 ---
-    pypi-server -P .htpasswd -p 8080 packages
+    pypi-server -P .htpasswd -p 8080 --welcome index.html  packages
     
 
 Upload to private PyPI server
